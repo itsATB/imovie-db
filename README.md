@@ -1,5 +1,6 @@
 # iMovie DB
 Movie Web App similar to IMDB implementing a movie web server using NodeJS, Express, and MongoDB hosted on local machine
+![logo-1](https://user-images.githubusercontent.com/86802653/125035728-2a887400-e060-11eb-856b-10e1ae00503d.png)
 
 
 
