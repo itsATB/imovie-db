@@ -17,7 +17,6 @@ Movie Web App similar to IMDB implementing a movie web server using NodeJS, Expr
 		-views folder which contains all the pug template along with some partials, css and an img
 	
 	Folders with Important Contents:
-		COMP2406Project:
 			views directory
 			db-initializer.js
 			MovieModel.js
@@ -53,7 +52,7 @@ Movie Web App similar to IMDB implementing a movie web server using NodeJS, Expr
 
 
 	How to initialize database:
-		-Download all files from this COMP2406Project folder into one location
+		-Extract all files from projectExpress-v1.1 folder into one location
 		-Open up command prompt
 		-Navigate to /MongoDB/Server/4.4/bin (i.e. wherever you have MongoDB installed go to the bin folder)
 		-Type this in command prompt:
