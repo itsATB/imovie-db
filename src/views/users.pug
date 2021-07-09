@@ -1,0 +1,29 @@
+html
+	head
+		title User Search
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/users.css
+body
+	include ./partials/header.pug
+	div
+		h2 Search for Users 
+		form(action="/users" method="get")
+			input(type="text" name="nameSearch")
+			button.search Search
+		br
+		
+		each user in users
+			a(href="/users/"+user.ID) #{user.name} - (#{user.followers.length})
+			br
+
+		br
+		
+		if current > 1
+			- let url = "/users?page=" + (current-1)
+			- if(qstring.length > 0){ url += "&" + qstring; }
+			a(href=url) Previous
+			| 
+		- url = "/users?page=" + (current+1)
+		- if(qstring.length > 0){ url += "&" + qstring; }
+		a(href=url) Next

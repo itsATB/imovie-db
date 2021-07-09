@@ -1,0 +1,92 @@
+html
+	head
+		title Movie Search
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/movie.css
+body
+	include ./partials/header.pug
+
+	main
+		div.movie
+			h2 #{movie.title} 
+			p Release Year: #{movie.releaseYear} | Runtime: #{movie.runtime} mins | Average Rating: #{movie.averageRating}
+			each genre in movie.genres
+				a(href="/movies?titleSearch=&genreSearch=" + genre + "&personSearch=") | #{genre} |
+			br
+			br
+			p.plot #{movie.plot}
+			br
+
+		div.contributors
+			h3 Directors
+			each director in directors
+				a(href="/people/"+director.ID) - #{director.name} 
+				| !{' - '}
+			br
+
+			h3 Writers
+			each writer in writers
+				a(href="/people/"+writer.ID) - #{writer.name} 
+				| !{' - '}
+			br
+
+			h3 Actors
+			each actor in actors
+				a(href="/people/"+actor.ID) - #{actor.name} 
+				| !{' - '} 
+			br
+			br
+			if loggedin
+				if !hasWatched
+					form(action="/movies/"+movie.ID+"/watchedMovies" method = "post")
+						button Add to Watched Movies!
+					br
+					br
+				else
+					form(action="/movies/"+movie.ID+"/unwatchedMovies" method = "post")
+						button Remove from Watched Movies!
+					br
+					br
+			h3 Similar Movies
+			each movie in similarMovies
+				a(href="/movies/"+movie.ID) | #{movie.title} | 
+			div.review
+				h3 Reviews
+				each review in reviews
+					h4.r #{review.rating}/10
+					| !{' '}
+					p.r  by 
+					| !{' '}
+					a.r(href="/users/"+review.userID)  #{review.user} 
+					if review.summary.length !== 0
+						p #{review.summary}
+						a.r(href="/movies/"+ review.movieID +"/reviews/"+review.ID) View full review
+					br
+				br
+ 
+				if loggedin	
+					h3 Add a Review
+						form(action="/movies/"+movie.ID+"/reviews" method="post")
+							label(for = "rating") Rating 
+							select(name="rating")
+								option(value="0") 0
+								option(value="1") 1
+								option(value="2") 2
+								option(value="3") 3
+								option(value="4") 4
+								option(value="5") 5
+								option(value="6") 6
+								option(value="7") 7
+								option(value="8") 8
+								option(value="9") 9
+								option(value="10") 10
+							br
+							.reviewtext
+								label(for = "briefDescription") Brief Description:  
+								textarea(name="briefDescription" rows="2" cols="15")
+								br
+								label(for = "fullText") Full Review:    
+								textarea(name="fullText" rows="4" cols="25")
+								br
+							button.submitReview Submit Review

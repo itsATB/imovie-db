@@ -1,0 +1,42 @@
+@import '../partials/darktheme.css';
+* {
+        margin: 0;
+        padding: 0;
+        font-family: 'Raleway';
+    }
+
+body{
+	text-align: center;
+	/*background-color: #414141;/*darkgrey;*/
+  color: lightgray;
+}
+div{
+	background-color: #525252;/*lightgrey;*/
+	margin: auto;
+	max-width: 800px;
+	min-height: 830px;
+	padding-top: 50px;
+}
+form{
+	padding-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	display: inline-block;
+}
+img{
+	padding-top: 10px;
+}
+input{
+  background-color: #9494b8;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -1,0 +1,22 @@
+html
+	head
+		title Home Page
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/loginpage.css
+body
+	include ./partials/header.pug
+	div
+		h2 Login 
+		br
+		form(action="/loginpage" method = "post")
+			label(for="name") Username:
+			input(type="text" name="name" required)
+			br
+			label(for="password") Password:
+			input(type="text" name="password" required)
+			br
+			br
+			button(type="submit" id="login") Login
+		br
+		a(href="/createnewuser" id="link") Create New User

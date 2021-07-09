@@ -1,0 +1,35 @@
+html
+	head
+		title Movie Search
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/movies.css
+body
+	include ./partials/header.pug
+	div
+		h2 Search for Movies 
+		form(action="/movies" method="get")
+			label(for = "titleSearch") Search by Title
+			input(type="text" name="titleSearch")
+			label(for = "genreSearch") Search by Genre
+			input(type="text" name="genreSearch")
+			label(for = "personSearch") Search by People
+			input(type="text" name="personSearch")
+			button.search Search
+		br
+		
+		each movie in movies
+			a(href="/movies/" + movie.ID) #{movie.title} | #{movie.releaseYear} | (#{movie.runtime} mins)
+			br
+
+		br
+		
+		if current > 1
+			- let url = "/movies?page=" + (current-1)
+			- if(qstring.length > 0){ url += "&" + qstring; }
+			a(href=url) Previous
+			| 
+		- url = "/movies?page=" + (current+1)
+		- if(qstring.length > 0){ url += "&" + qstring; }
+		if movies.length >= 10
+			a(href=url) Next

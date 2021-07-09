@@ -1,0 +1,73 @@
+@import '../partials/darktheme.css';
+* {
+        margin: 0;
+        padding: 0;
+        font-family: 'Raleway';
+    }
+
+body{
+  text-align: center;
+  /*background-color: darkgrey;*/
+}
+div{
+  /*background-color: lightgrey;*/
+  margin: auto;
+  max-width: 800px;
+  padding-top: 10px;
+  text-align: center;
+}
+.review{
+  background-color: #525252;/*background-color: grey;*/
+  text-align: center;
+}
+.r{
+  display: inline-block;
+}
+form{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+p.plot{
+  font-size: 18px;
+}
+textarea{
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 150px;
+    margin-top: 5px;
+}
+input[id="rating"]{
+  min-width: 250px;
+  max-width: 250px;
+}
+button{
+  background-color: #9494b8;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.reviewtext {
+  margin: 0 auto;
+  width: 210px;
+}
+.reviewtext label{
+  display: inline-block;
+  text-align: right;
+  float: left;
+}
+.reviewtext input{  
+  display: inline-block;
+  text-align: left;
+  float: right;
+}

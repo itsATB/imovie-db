@@ -1,0 +1,18 @@
+html
+	head
+		title Create Person
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/createperson.css
+body
+	include ./partials/header.pug
+	div
+		h2 Create Person
+		br
+		form(action="/createperson" method="post")
+			label(for = "pname") Enter Person's Name
+			input(type="text" name="pname")
+			br
+			button.create Create!
+		br
+		

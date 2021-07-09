@@ -1,0 +1,81 @@
+html
+    head
+        title Home Page
+        link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+    style 
+        include ./css/userverified.css
+
+    script(src="/js/removeNotification.js")
+body
+    include ./partials/header.pug
+    div.Main
+        h2 #{user.name}'s User Page
+        br
+        
+        h3 Current Followers 
+        each follower in followers
+            p   | #{follower.name} |
+        br
+        br
+
+
+        h3 People You are Following 
+        each fP in followingP
+            a(href="/people/"+fP.ID for = "person") | #{fP.name} | 
+        br
+        br
+
+        h3 Users You are Following 
+        each f in followingU
+            a(href="/users/"+f.ID for = "user") | #{f.name} | 
+        br
+        br
+
+        h3 Watched Movies
+        if watchedMovies.length != 0
+            form(action="/users/"+user.ID+"/removedMovies" method = "post")
+                each movie in watchedMovies
+                    a(href="/movies/"+movie.ID for = "movie") #{movie.title}
+                    input(type="radio" name="movie" value=movie.ID)
+                br
+                button.removeM Remove Movie from Watched List
+        br
+        br
+
+        h3 Recommended Movies 
+        each movie in recommendedM
+            a(href="/movies/" + movie.ID) | #{movie.title} | 
+        br
+        br
+
+        h3 Notifications
+        each notification in user.uNotif
+            div(id="un_"+notification.ID)
+                button(id="delete" onclick="removeUNotification("+ notification.ID +","+ user.ID + ")") Delete
+                a(href="/movies"+ notification.movieID +"/reviews/"+notification.ID) #{notification.user} has created a new review for #{notification.movieTitle}
+                br
+        - var n = 0;
+        while n < pNotifications.length
+            - var string = pNotifications[n];
+            div(id="pn_"+pNotifications[n])
+                button(id="delete" onclick='removePNotification("' + string + '",' +user.ID+ "," +pNotificationsMID[n]+ ")") Delete
+                a(href="/movies/"+pNotificationsMID[n]) #{pNotifications[n]}
+                br
+            - n++
+        br
+        br
+
+        h3 Your Reviews 
+        each review in moviesReviewed
+            a(href="/movies/" + review.movieID) | Review for #{review.movieTitle} |
+        br
+        br
+
+        h4 Current Usertype = #{user.userType}
+        form(action="/users/"+user.ID method = "post")
+            label(for = "regular") Regular
+            input(type="radio" name ="userType" value="Regular")
+            label(for = "contributing") Contributing
+            input(type="radio" name ="userType"  value="Contributing")
+            br
+            button.updateUserType Update User Type

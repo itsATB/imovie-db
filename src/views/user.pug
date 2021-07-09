@@ -1,0 +1,50 @@
+html
+	head
+		title #{user.name}'s Page
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/user.css
+body
+	include ./partials/header.pug
+	div
+		h2 #{user.name}'s User Page
+		if isFollowing === false
+			form(action = "/users/"+user.ID+"/followedU" method="post")
+				button.follow Follow!
+		else
+			form(action = "/users/"+user.ID+"/unfollowedU" method="post")
+				button.follow Unfollow!
+		br
+		br
+		
+		h5 People #{user.name} is Following
+		each person in followingP
+			a(href="/people/" + person.ID) | #{person.name} | 
+		br
+		br
+
+		h5 Users #{user.name} is Following 
+		each follU in followingU
+			a(href="/users/"+follU.ID) | #{follU.name} | 
+		br
+		br
+
+		h5 Followers 
+		each follower in followers
+			a(href="/users/"+follower.ID) | #{follower.name} |
+		br
+		br
+
+		h5 Watched Films
+		each movie in watchedMovies
+			a(href="/movies/" + movie.ID) | #{movie.title} | 
+		br
+		br
+		
+		h5 Reviews by #{user.name}: 
+		each movie in moviesReviewed
+			a(href="/movies/"+ movie.movieID +"/reviews/" + movie.ID) | Review for #{movie.movieTitle} |
+		br
+
+
+

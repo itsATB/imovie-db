@@ -1,0 +1,17 @@
+html
+
+	head
+		title Home Page
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/homepage.css
+body
+	include ./partials/header.pug
+	div.text
+		h2 Welcome to iMovieDB
+		form(action="/loginpage" method = "get") 
+			input.button(type="submit" value="Login")
+		form(action="/createnewuser" method = "get") 
+			input.button(type="submit" value="New User?")
+		br
+		img(src='imgs/logo.png' alt='logo' style='width:400px; height:400px;')

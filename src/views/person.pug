@@ -1,0 +1,46 @@
+html
+	head
+		title #{person.name}'s Page
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/person.css
+body
+	include ./partials/header.pug
+	div
+		h2 #{person.name}
+		if isFollowing === false
+			form(action="/followP/"+person.ID method="post")
+				button.follow Follow!
+		else
+			form(action="/unfollowP/"+person.ID method="post")
+				button.follow Unfollow!
+		br
+		br
+		
+		if prevDW.length != 0
+			h3 Directing History: 
+			each movie in prevDW
+				a(href="/movies/" + movie.ID) | #{movie.title} | 
+			br
+			br
+
+		if prevWW.length != 0
+			h3 Writing History: 
+			each movie in prevWW
+				a(href="/movies/" + movie.ID) | #{movie.title} | 
+			br
+			br
+
+		if prevAW.length != 0
+			h3 Acting History: 
+			each movie in prevAW
+				a(href="/movies/" + movie.ID) | #{movie.title} | 
+			br
+			br
+
+		h3 Frequent Collaborators: 
+		each p in freqC
+			a(href="/people/" + p.ID) | #{p.name} | 
+		br
+
+		

@@ -1,0 +1,25 @@
+html
+	head
+		title Create New User
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/createnewuser.css
+body
+	include ./partials/header.pug
+	div
+		h2 Create Account
+		br
+
+		form(action="/createnewuser" method="post")
+			label(for="name") Username:
+			input(type="text" name="name" required)
+			br
+			label(for="password") Password:
+			input(type="text" name="password" required)
+			br
+			label(for="passwordMatch") Re-type Password:
+			input(type="text" name="passwordMatch" required)
+			br
+			button.login Create Account
+		br
+		a(href="/loginpage") Login Page

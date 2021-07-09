@@ -1,0 +1,16 @@
+//- header.pug
+style
+    include headercss.css
+header
+    nav    
+        a(href="/") Home Page |  
+        a(href="/movies") Search Movies | 
+        a(href="/people") Search People | 
+        a(href="/users") Search Users | 
+        a(href="/createmovie") Create Movie | 
+        a(href="/createperson") Create Person | 
+        if session != undefined
+            if session.loggedin == true
+                a(href="/users/"+session.userID) Profile | 
+        a(href="/logout") LOGOUT | 
+        

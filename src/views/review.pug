@@ -1,0 +1,21 @@
+html
+	head
+		title Review
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/movie.css
+body
+	include ./partials/header.pug
+
+	main
+		h1 Review from #{review.user} for #{review.movieTitle}
+		h2 Rating: #{review.rating}/10
+		br
+		if review.type == 'Full'
+			h3 Brief Description
+			p #{review.summary}
+			br
+			h3 Full Text
+			p #{review.fullReview}
+
+		a(href="/movies/"+review.movieID) #{review.movieTitle}

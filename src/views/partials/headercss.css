@@ -1,0 +1,14 @@
+header{
+    text-align: center;
+    background-color: #313131;/*rgb(125, 125,125);*/
+    padding:10px;
+}
+
+a:link,a:visited {
+    text-decoration: none;
+    color: #8484ca;
+}
+a:hover,a:active{
+    text-decoration: underline;
+    color: rgb(156, 87, 110);
+}

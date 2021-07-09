@@ -1,0 +1,55 @@
+html
+	head
+		title Create Movie
+		link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap' rel='stylesheet')
+	style 
+		include ./css/createmovie.css
+
+	script(src="/js/createmovie.js")
+body
+	include ./partials/header.pug
+	div
+		h2 Create Movie
+		br
+		form.title
+			label(for = "title") Enter Title
+			input(type="text" id="title")
+		form.rYear
+			label(for = "rYear") Enter Release Year
+			input(type="text" id="rYear")
+		form.runtime
+			label(for = "runtime") Enter Runtime in Minutes
+			input(type="text" id="runtime")
+		form.plot
+			label(for = "plot") Enter Plot Description
+			textarea(type="text" id="plot")
+		form.genres
+			label(for = "genres") Enter Genre(s) Separated by ","
+			input(type="text" id="genres")
+		form.directors
+			label(for = "directors") Enter Director(s) Separated by ","
+			input(type="text" id="directors")
+		button(id="directorSearch" onclick="addDirector()") Search Directors
+		p(id="directorsP")
+		br
+		form.writers
+			label(for = "writers") Enter Writer(s) Separated by ","
+			input(type="text" id="writers")
+		button(id="writerSearch" onclick="addWriter()") Search Writers
+		p(id="writersP")
+		form.actors
+			label(for = "actors") Enter Actor(s) Separated by ","
+			input(type="text" id="actors")
+		button(id="actorSearch" onclick="addActor()") Search Actors
+		p(id="actorsP")
+		h4 Added Directors
+		p(id="addedDirectors")
+		h4 Added Writers
+		p(id="addedWriters")
+		h4 Added Actors
+		p(id="addedActors")
+		br
+		button(id="create" onclick="createMovie()") Create!
+		br
+		br
+		br

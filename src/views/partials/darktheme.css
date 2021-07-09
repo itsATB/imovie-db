@@ -1,0 +1,13 @@
+body{
+	background-color: #414141;/*darkgrey;*/
+    color: lightgray;
+}
+
+div{
+	background-color: #525252;
+    border-radius: 15px;
+}
+
+button:hover, input.button:hover{
+    background-color: rgb(156, 87, 110);
+}

@@ -1,0 +1,3 @@
+{"userDir":"users","productDir":"products","reviewDir":"reviews",
+"host":"http://localhost:3000","nextReviewID":1,"nextMovieID":1,
+"nextPersonID":1}
